@@ -2,17 +2,27 @@
 
 import Search from './comps/search/search';
 import CurrentWeather from './comps/current/current-weather';
+import CurrentTime from './comps/time/time';
 import './App.css';
-import {weatherurl, weatherkey, mapurl, mapkey} from './api.js';
-import React, { useState } from 'react';
+import {weatherurl, weatherkey, mapurl, mapkey, timeurl, timeoptions} from './api.js';
+import React, { useState, useEffect } from 'react';
 
 
 function App() {
+  const [message, setmessage] = useState(null);
   const [currentweather, setcurrentweather] = useState(null);
   const [currentmap, setcurrentmap] = useState(null);
+  const [currenttime, setcurrenttime] = useState(null);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:8000/message")
+  //   .then((res) => res.json())
+  //   .then((data) => setmessage(data.message));
+  // }, []);
 
   const handleOnSearchChange = (searchData) => {
-    const [lat, lon] = searchData.value.split(" ");
+    // console.log(searchData);
+    const [lat, lon, id] = searchData.value.split(" ");
     const currentweather = fetch(`${weatherurl}/weather?lat=${lat}&lon=${lon}&appid=${weatherkey}&units=imperial`);
     // console.log(searchData.label.split(', ')[1]);
     let currentmap = fetch(`${mapurl}/staticmap?apiKey=${mapkey}&center=lonlat:-96,38.8&marker=lonlat:${lon},${lat};color:%23ff0000;size:medium&zoom=3.5&height=550`);
@@ -25,18 +35,24 @@ function App() {
       currentmap = fetch(`${mapurl}/staticmap?apiKey=${mapkey}&center=lonlat:-153,63&marker=lonlat:${lon},${lat};color:%23ff0000;size:medium&zoom=3&height=550`);
     }
 
-    Promise.all([currentweather,currentmap])
+    console.log(id);
+    const currenttime = fetch(`${timeurl}/${id}/dateTime`,timeoptions);
+
+    Promise.all([currentweather,currentmap, currenttime])
     .then (async (response) => {
       const weatherresponse = await response[0].json();
       const mapresponse =  await (response[1]);
-      // console.log (mapresponse)
+      const timeresponse = await response[2].json();
+      // console.log (timeresponse);
       setcurrentweather({city: searchData.label, ...weatherresponse});
       setcurrentmap({url: mapresponse.url});
+      setcurrenttime({timeresponse});
     })
     .catch((err) => console.log(err));
   };
 
-  // console.log(currentmap);
+  console.log(currenttime);
+  // console.log(currentweather);
   
 
   return (
@@ -55,8 +71,11 @@ function App() {
       )}
       </div>
       <div className="timearea">
-        <CurrentTime data = {currentweather}/>
+        {currenttime && <CurrentTime data = {currenttime}/>}
       </div>
+      {/* <div className = "app">
+        <p>{timeresponse}</p>
+      </div> */}
     </div>
   );
 }

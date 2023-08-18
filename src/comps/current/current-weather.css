@@ -25,6 +25,7 @@
     margin: 0;
     letter-spacing: 1px;
     /* float: left; */
+    width: 300px;
   }
   
   .weather-desc {
@@ -57,13 +58,14 @@
     float: left;
     /* border: 3px solid green; */
     margin: auto;
+    width: 200px;
   }
 
   .param{
     font-size: 15px;
     display: flex;
     justify-content: space-between;
-    padding-left: 50%;
+    padding-left: 25%;
     /* float: right; */
   }
   .param-label {

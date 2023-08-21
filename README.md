@@ -2,12 +2,15 @@
 
 **tech**: React.js, JavaScript, APIs, HTML, CSS
 
-**features**:
+**current features**:
 - search bar with city autocomplete/dropdown
 - current weather
 - current local time
 - location of city on map of U.S. (works for all states)
 - forecast for the next 24 hours
+
+**features to be added**
+- keep track of cities previously searched by creating a backend (Node.js)
 
 **areas of improvement**:
 - search bar only displays 5 dropdown options; cannot find some cities in different states with same name

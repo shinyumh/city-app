@@ -1,5 +1,7 @@
 # city app - info about cities in the U.S.
 
+![screenshot](./public/example.png)
+
 **tech**: React.js, JavaScript, APIs, HTML, CSS
 
 **current features**:

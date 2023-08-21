@@ -7,7 +7,7 @@
 - current weather
 - current local time
 - location of city on map of U.S. (works for all states)
-- forecast for the next 24 hours
+- forecast for the next 24 hours (clickable; show more details)
 
 **features to be added**
 - keep track of cities previously searched by creating a backend (Node.js)
@@ -16,7 +16,7 @@
 - search bar only displays 5 dropdown options; cannot find some cities in different states with same name
 - map doesn't work for U.S. territories
 
-**tutorial**: [https://youtu.be/Reny0cTTv24](https://youtu.be/Reny0cTTv24) (search bar, weather)
+**tutorial**: [https://youtu.be/Reny0cTTv24](https://youtu.be/Reny0cTTv24) (search bar, weather, forecast structure)
 
 **instructions**:
 1. make your own API keys & paste it to 'src/api.js'

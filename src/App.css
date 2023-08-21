@@ -29,3 +29,9 @@
 .timearea{
   float: left;
 }
+
+.forecastarea{
+  float:left;
+  width: 1080px;
+  margin-bottom: 20px;
+}

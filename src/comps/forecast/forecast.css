@@ -1,0 +1,59 @@
+.overall {
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px 20px 5px 20px;
+    margin-bottom: 10px;
+}
+
+.daily-item {
+    font-size: 20px;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+}
+
+.icon-small{
+    width: 50px;
+    cursor: pointer;
+}
+
+.futuretime{
+    flex: 1 1;
+    font-weight: 550;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.description{
+    flex: 1 1;
+    cursor: pointer;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.temps{
+    color: gray;
+}
+
+.daily-details-grid{
+    grid-row-gap: 0;
+    grid-column-gap: 15px;
+    -webkit-column-gap: 15px;
+    column-gap: 15px;
+    display: grid;
+    flex: 1 1;
+    grid-template-columns: auto auto;
+    padding: 5px auto;
+    row-gap: 0;
+}
+
+.griditem{
+    align-items: center;
+    display: flex;
+    height: 30px;
+    justify-content: space-between;
+}
+
+.griditem label:first-child {
+    color: #757575;
+}

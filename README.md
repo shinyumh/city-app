@@ -9,7 +9,7 @@
 - location of city on map of U.S. (works for all states)
 - forecast for the next 24 hours (clickable; show more details)
 
-**features to be added**
+**features to be added:**
 - keep track of cities previously searched by creating a backend (Node.js)
 
 **areas of improvement**:
